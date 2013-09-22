@@ -1,9 +1,13 @@
 package edu.sjsu.cmpe.library.domain;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import edu.sjsu.cmpe.library.dto.LinksDto;
 
 
@@ -13,7 +17,7 @@ public class Review extends LinksDto{
 	private static int reviewKey;
 	private int id;
 	
-	@NotEmpty(message ="Review rating is required field.")
+	@NotNull(message ="Review rating is required field.")
 	private Rating ratingValue;
 	
 	@NotEmpty(message ="Review comments is required field.")

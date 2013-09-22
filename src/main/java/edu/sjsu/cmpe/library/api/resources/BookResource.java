@@ -235,7 +235,7 @@ public class BookResource {
 	@POST
 	@Path("/{isbn}/reviews")
 	@Timed(name = "create-review")
-	public Response createBookReviews(@PathParam("isbn") int isbn,Review review) {
+	public Response createBookReviews(@PathParam("isbn") int isbn,@Valid Review review) {
 
 		Review reviewResponse =  BooksDto.createReviews(isbn, review);		
 		BooksDto bookCreateReviewResponse = new BooksDto();
