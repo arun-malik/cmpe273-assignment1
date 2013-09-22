@@ -1,16 +1,9 @@
 package edu.sjsu.cmpe.library.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.collect.Maps;
-
-import edu.sjsu.cmpe.library.domain.Author;
-import edu.sjsu.cmpe.library.domain.Book;
-import edu.sjsu.cmpe.library.domain.Book.BookStatus;
-import edu.sjsu.cmpe.library.domain.Review;
+import edu.sjsu.cmpe.library.domain.*;
 
 
 @JsonPropertyOrder(alphabetic = true)
@@ -87,6 +80,13 @@ public class BooksDto extends LinksDto {
 	    }
 		return null;
 	}
+	
+	public static Review createReviews(int ISBNKey,Review rating ) {
+		
+		libraryBooks.get(ISBNKey).addBookReview(rating);
+		return rating;
+	}
+	
    
    
 }
